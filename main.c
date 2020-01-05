@@ -1,6 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define ArrayMax 100
+void showArray(int Array[],int IndexMax)
+{
+	for (size_t i = 0; i < IndexMax; i++)
+		{
+			printf("%d", Array[i]);
+			if (i+1 < IndexMax)
+				printf(" ");
+			else
+				printf("\n");
+		}
+}
 int main(int argc, char *argv[])
 {
 	char str[7];
@@ -16,14 +27,7 @@ int main(int argc, char *argv[])
 	int IndexMax = count;
 	count = 0;
 	int MinIndex = 0;
-	for (size_t i = 0; i < IndexMax; i++)
-	{
-		printf("%d", Array[i]);
-		if (i+1 < IndexMax)
-			printf(" ");
-		else
-			printf("\n");
-	}
+	showArray(Array, IndexMax);
 	for (int j = 0; j < IndexMax; j++)
 	{
 		int Min = Array[j];
@@ -41,14 +45,7 @@ int main(int argc, char *argv[])
 			Array[MinIndex] = Array[MinIndex - 1];
 			Array[MinIndex - 1] = tmp;
 			MinIndex--;
-			for (size_t i = 0; i < IndexMax; i++)
-			{
-				printf("%d", Array[i]);
-				if (i+1 < IndexMax)
-					printf(" ");
-				else
-					printf("\n");
-			}
+			showArray(Array, IndexMax);
 		}
 	}
 #pragma endregion
