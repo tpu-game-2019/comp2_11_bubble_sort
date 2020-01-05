@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define ArrayMax 100
-void showArray(int Array[],int IndexMax)
+void showArray(int Array[], int IndexMax)
 {
 	for (size_t i = 0; i < IndexMax; i++)
-		{
-			printf("%d", Array[i]);
-			if (i+1 < IndexMax)
-				printf(" ");
-			else
-				printf("\n");
-		}
+	{
+		printf("%d", Array[i]);
+		if (i + 1 < IndexMax)
+			printf(" ");
+		else
+			printf("\n");
+	}
 }
 int main(int argc, char *argv[])
 {
@@ -22,29 +22,24 @@ int main(int argc, char *argv[])
 		Array[count] = atoi(str);
 		count++;
 	}
-	
+
 #pragma region
 	int IndexMax = count;
+	count--;
 	int MinIndex = 0;
 	showArray(Array, IndexMax);
-	for (int j = 0; j < IndexMax; j++)
+	for (size_t i = 0; i < IndexMax; i++)
 	{
-		int Min = Array[j];
-		for (size_t i = j; i < IndexMax; i++)
+		for (int j = IndexMax-1; j > 0; j--)
 		{
-			if (Min > Array[i])
+			if(Array[j] < Array[j - 1])
 			{
-				Min = Array[i];
-				MinIndex = i;
+				int tmp = Array[j];
+				Array[j] = Array[j - 1];
+				Array[j - 1] = tmp;
+				//count--;
+				showArray(Array, IndexMax);
 			}
-		}
-		while (MinIndex > 0 && Array[MinIndex] < Array[MinIndex - 1])
-		{
-			int tmp = Array[MinIndex];
-			Array[MinIndex] = Array[MinIndex - 1];
-			Array[MinIndex - 1] = tmp;
-			MinIndex--;
-			showArray(Array, IndexMax);
 		}
 	}
 #pragma endregion
