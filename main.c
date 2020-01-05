@@ -25,7 +25,6 @@ int main(int argc, char *argv[])
 	
 #pragma region
 	int IndexMax = count;
-	count = 0;
 	int MinIndex = 0;
 	showArray(Array, IndexMax);
 	for (int j = 0; j < IndexMax; j++)
