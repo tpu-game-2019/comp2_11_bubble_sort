@@ -2,6 +2,7 @@
 
 int main(void)
 {
+
 	int i, j, tmp;
 
 	char str[7];
@@ -13,6 +14,14 @@ int main(void)
 		count++;
 	}
 
+	for (i = 0; i < count; i++) {
+		printf("%d", number[i]);
+		if (i == count - 1)
+			putchar('\n');
+		else
+			putchar(' ');
+	}
+
 	for (i = 0; i < count; ++i) {
 		for (j = i + 1; j < count; ++j) {
 			if (number[i] > number[j]) {
@@ -21,14 +30,7 @@ int main(void)
 				number[j] = tmp;
 			}
 		}
-		for(i = 0; i < count; ++i)
-			printf("%d\n", number[i]);
 	}
-
-	for (i = 0; i < count; ++i)
-		printf("%d\n", number[i]);
-
-	printf("\n");
 
 	return 0;
 }
