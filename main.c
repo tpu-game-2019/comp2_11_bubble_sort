@@ -1,45 +1,43 @@
 #include <stdio.h>
 
-int main(int argc, char* argv[])
+void Swap(int*a,int*b)
 {
-	char str[7];
-	int number[100];
-	int i, j, count = 0;
+    int temp;
+    temp=*a;*a=*b;*b=temp;
+}
 
-	while (fgets(str, sizeof(str), stdin)) {
-		number[count] = atoi(str);
-		count++;
-	}
+void ShowArray(int*data,int n)
+{
+    int i;
+    for(i=0;i<n;i++){
+        printf("%d",data[i]);
+        if(i==n-1)
+            putchar('\n');
+        else
+            putchar(' ');
+    }
+}
+int main(int argc, char *argv[]) 
+{
+    char str[7];
+    int data[100];
+    int i,j,count=0;
 
-	//表示
-	for (i = 0; i < count; i++) {
-		printf("%d", number[i]);
-		if (i == count - 1)
-			putchar('\n');
-		else
-			putchar(' ');
-	}
+    while(fgets(str, sizeof(str), stdin)){
+       data[count]=atoi(str);
+        count++;
+    }
 
-	int swap;
+    ShowArray(data,count);
 
-	for (i = 0; i < count; i++) {
-		for (j = count - 1; j > 0; j--) {
-			if (number[j] < number[j - 1]) {
-				//交換
-				swap = number[j];
-				number[j] = number[j - 1];
-				number[j - 1] = swap;
-				//表示
-				for (i = 0; i < count; i++) {
-					printf("%d", number[i]);
-					if (i == count - 1)
-						putchar('\n');
-					else
-						putchar(' ');
-				}
-			}
-		}
-	}
+    for(i=0;i<count;i++){
+        for(j=count-1;j>0;j--){
+            if(data[j]<data[j-1]){
+                Swap(&data[j],&data[j-1]);
+                ShowArray(data,count);
+            }
+        }
+    }
 
-	return 0;
+    return 0;
 }
