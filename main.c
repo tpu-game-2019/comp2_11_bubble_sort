@@ -12,9 +12,11 @@ int main(int argc, char* argv[])
 		count++;
 	}
 
-	for (i = 0; i < count; i++) {
+	int kari = count;
+
+	for (i = 0; i < kari; i++) {
 		printf("%d", data[i]);
-		if (i == count - 1)
+		if (i == kari - 1)
 			putchar('\n');
 		else
 			putchar(' ');
@@ -26,9 +28,10 @@ int main(int argc, char* argv[])
 					data[j] = data[j - 1];
 					data[j - 1] = temp;
 
-					for (i = 0; i < count; i++) {
+					kari = count;
+					for (i = 0; i < kari; i++) {
 						printf("%d", data[i]);
-						if (i == count - 1)
+						if (i == kari - 1)
 							putchar('\n');
 						else
 							putchar(' ');
