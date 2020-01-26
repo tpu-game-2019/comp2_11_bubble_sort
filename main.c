@@ -2,7 +2,6 @@
 
 int main(void)
 {
-
 	int i, j, tmp;
 
 	char str[7];
