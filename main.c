@@ -28,6 +28,13 @@ int main(void)
 				tmp = number[i];
 				number[i] = number[j];
 				number[j] = tmp;
+				for (i = 0; i < count; i++) {
+					printf("%d", number[i]);
+					if (i == count - 1)
+						putchar('\n');
+					else
+						putchar(' ');
+				}
 			}
 		}
 	}
